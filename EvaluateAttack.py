@@ -4,8 +4,6 @@ import argparse
 from utils.eval import Eval 
 from utils.attack import attack_output
 from tabulate import tabulate
-# from TransFool import attacker
-# from kNN import attacker
 
 import sys
 
