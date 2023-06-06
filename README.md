@@ -2,7 +2,7 @@
 
 This is the official repository of the paper [**"Targeted Adversarial Attacks against Neural Machine Translation "**](https://arxiv.org/abs/2303.01068.pdf), the targeted white-box adversarial attack against NMT systems. 
 
-![](Blockdiagram.png)
+![](blockdiagram.png)
 
 ## Installation
 Install [conda](https://conda.io) and run the steps below:
