@@ -8,7 +8,6 @@ from tabulate import tabulate
 # from kNN import attacker
 
 import sys
-# sys.modules['attacker'] = attacker
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -105,5 +104,4 @@ if __name__ == '__main__':
         help="max-swap in knn")
 
     args = parser.parse_args()
-
     main(args)
