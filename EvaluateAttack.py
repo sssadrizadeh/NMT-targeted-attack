@@ -98,8 +98,5 @@ if __name__ == '__main__':
     parser.add_argument("--const", default=1, type=float,
         help="const in seq2sick")
 
-    parser.add_argument("--max-swap", default=1, type=int,
-        help="max-swap in knn")
-
     args = parser.parse_args()
     main(args)
