@@ -1,7 +1,7 @@
 import argparse
 
-def TransFool_parser():
-    parser = argparse.ArgumentParser(description="TransFool Attack")
+def parser():
+    parser = argparse.ArgumentParser(description="TargetedAttack Attack")
 
     # Bookkeeping
     parser.add_argument("--result_folder", default="result", type=str,

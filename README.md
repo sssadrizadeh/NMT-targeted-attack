@@ -13,18 +13,18 @@ $ conda env create --file=env.yml
 $ conda activate attack
 ```
 
-The datsets and models are available in the HuggingFace transformers package.
+The datsets and models are available in the HuggingFace transformers package. You can download the language models used in our attack from [here](https://zenodo.org/record/8082870). Please copy these files in the [`./LanguageModel`](LanguageModel) folder. 
 
 ## Performing targeted adversarial attack against NMT models
 To attack a translation model, Marian NMT or mBART50, run the following code:
 ```sh
-$ python TransFool/white_box_attack.py --num_samples 1000 --w_sim 10 4 2 --model_name marian --target_lang fr --dataset_config_name fr-en --dataset_name wmt14 --result_folder results --Nth 2
+$ python TargetedAttack/white_box_attack.py --num_samples 1000 --w_sim 10 4 2 --model_name marian --target_lang fr --dataset_config_name fr-en --dataset_name wmt14 --result_folder results --Nth 2
 ```
 This code generates adversarial examples against Marian NMT for the samples 0-1000 of the WMT14 (Fr-En) dataset. The adversarial attack chosses the second most probable token as the target keyword (Nth = 2). To use the code to insert a pre-defined keyword (such as *guerre*) to the translation, use the option --attack_target guerre instead of --Nth 2.
 
-After running the code, a pickle file of the results are generated which can be evaluted by:
+After running the code, a pickle file of the results is generated which can be evaluted by:
 ```sh
-$ python EvaluateAttack.py --num_samples 1000 --target_model_name marian --target_lang fr --result_folder results --attack_type white_box --attack_alg TransFool --w_sim 10 4 2 --Nth 2
+$ python EvaluateAttack.py --num_samples 1000 --target_model_name marian --target_lang fr --result_folder results --attack_type white_box --attack_alg TargetedAttack --w_sim 10 4 2 --Nth 2
 ```
 This code evaluates the attack in terms of the average semantic similarity between the original sentences  and the adversarial, the token error rate, the success attack rate, and relative decrease in translation quality.
 

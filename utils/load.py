@@ -3,6 +3,7 @@ from datasets import load_dataset, DatasetDict
 import functools 
 import torch
 import numpy as np
+import os
 
 def get_ids_adv_text(len_total_ids,num_ids,start_idx,seed=113):
   # Generate the ids of the sentences to attack in the dataset
@@ -66,7 +67,7 @@ def load_model_tokenizer(model_name, source_lang, target_lang, device):
 
 
 def load_LM_FC(model_name, source_lang, target_lang, vocab_size, embedding_size, device):
-    root = "/cluster/raid/home/sasa/Transformers_tests/language_model_punctuation"
+    root = os.getcwd()+"/LanguageModel"
     
     if model_name=="marian":
         dict_path = root + f"/marian_{source_lang}_{target_lang}/" 

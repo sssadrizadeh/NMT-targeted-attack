@@ -49,7 +49,7 @@ class Attacker():
         self.cos_dist = cosine_distance(self.tokenized_dataset, self.tokenizer, self.device, mode="avg")
 
 
-    # TransFool attack
+    # Targeted attack
     def gen_adv(self, sentence_number, LM_model, fc, attack_target=None,attack_ids_target=None,):
         
         lr, list_w_sim = self.args.lr, self.args.w_sim

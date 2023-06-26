@@ -17,7 +17,7 @@ def decode(ids,tokenizer, model_name, target_lang):
         else:
             return tokenizer.decode(ids, skip_special_tokens=True)
 
-def save_outputs(args, best, attack_type, attack_alg="TransFool"):
+def save_outputs(args, best, attack_type, attack_alg="TargetedAttack"):
 
     model_name = f'white_box/{args.model_name}'
     PATH = f'{attack_alg}/{args.result_folder}/{model_name}_{args.source_lang}_{args.target_lang}'
@@ -62,7 +62,7 @@ def save_outputs(args, best, attack_type, attack_alg="TransFool"):
 
 
 
-def save_outputs_from_pickle(d, attack_type, attack_alg="TransFool", model_name=None, black_model_name=None, result_folder=None, source_lang=None, target_lang=None, black_target_lang=None):
+def save_outputs_from_pickle(d, attack_type, attack_alg="TargetedAttack", model_name=None, black_model_name=None, result_folder=None, source_lang=None, target_lang=None, black_target_lang=None):
 
     model_name = f'white_box/{model_name}'
     PATH = f'{attack_alg}/{result_folder}/{model_name}_{source_lang}_{target_lang}'

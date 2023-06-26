@@ -13,7 +13,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def main(args):
 
-    if "TransFool" in args.attack_alg:
+    if "TargetedAttack" in args.attack_alg:
         PATH = f'{args.attack_alg}/{args.result_folder}/{args.attack_type}/{args.target_model_name}_{args.source_lang}_{args.target_lang}_{args.start_index}_{args.start_index+args.num_samples}_sim_{"_".join(map(str, [k*10 for k in args.w_sim]))}_lr_{args.lr[0]*1000}_n_{args.Nth}_target_{args.attack_target}.pkl'
     
     elif "Seq2Sick" in args.attack_alg:
@@ -53,8 +53,8 @@ if __name__ == '__main__':
     # Data
     parser.add_argument("--num_samples", default=100, type=int,
         help="number of samples to attack")
-    parser.add_argument("--attack_alg", default="TransFool", type=str,
-        choices=["TransFool", "Seq2Sick"],
+    parser.add_argument("--attack_alg", default="TargetedAttack", type=str,
+        choices=["TargetedAttack", "Seq2Sick"],
         help="attack method to load reasults from corresponding folder")
     parser.add_argument("--attack_type", default="white_box", type=str,
         choices=["white_box"],
